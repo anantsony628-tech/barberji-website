@@ -1,770 +1,751 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Barber Ji | Salon & Beauty Services</title>
+<meta name="description" content="Barber Ji - Discover salons, beauty parlours, grooming services and professional home services near you.">
 
-    <title>Barber Ji | Salon & Beauty Services</title>
-    <meta name="description" content="Barber Ji - Discover salons, beauty parlours, grooming services and professional home services near you.">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    html {
+        scroll-behavior: smooth;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    body {
+        background: #fff8fb;
+        color: #24212a;
+    }
 
-        body {
-            background: #fff8fb;
-            color: #24212a;
-        }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255,255,255,0.94);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 2px 18px rgba(0,0,0,0.08);
+    }
 
-        /* HEADER */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.94);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 2px 18px rgba(0,0,0,0.08);
-        }
+    .nav {
+        max-width: 1150px;
+        margin: auto;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-        .nav {
-            max-width: 1150px;
-            margin: auto;
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    .logo {
+        font-size: 28px;
+        font-weight: 900;
+        background: linear-gradient(90deg, #ff176b, #7b2cff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 900;
-            background: linear-gradient(90deg, #ff176b, #7b2cff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .nav-links {
+        display: flex;
+        gap: 25px;
+        font-weight: 600;
+    }
 
+    .nav-links a:hover {
+        color: #ff176b;
+    }
+
+    .nav-btn {
+        background: linear-gradient(135deg, #ff176b, #7b2cff);
+        color: white;
+        padding: 11px 20px;
+        border-radius: 30px;
+        font-weight: 700;
+    }
+
+    .hero {
+        min-height: 610px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background:
+            radial-gradient(circle at 10% 20%, #ffd1e4 0, transparent 28%),
+            radial-gradient(circle at 90% 20%, #ddd0ff 0, transparent 30%),
+            linear-gradient(135deg, #fff5f9, #f7f2ff);
+    }
+
+    .hero-content {
+        max-width: 1150px;
+        width: 100%;
+        margin: auto;
+        padding: 70px 20px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 9px 17px;
+        background: white;
+        color: #ff176b;
+        border-radius: 30px;
+        font-weight: 700;
+        box-shadow: 0 8px 25px rgba(255,23,107,0.12);
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 6vw, 72px);
+        line-height: 1.03;
+        margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+        background: linear-gradient(90deg, #ff176b, #7b2cff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+        font-size: 19px;
+        line-height: 1.7;
+        color: #625c69;
+        max-width: 600px;
+        margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        padding: 15px 25px;
+        border-radius: 35px;
+        font-weight: 800;
+        display: inline-block;
+    }
+
+    .primary-btn {
+        color: white;
+        background: linear-gradient(135deg, #ff176b, #7b2cff);
+        box-shadow: 0 12px 30px rgba(123,44,255,0.25);
+    }
+
+    .secondary-btn {
+        background: white;
+        border: 2px solid #eee4f2;
+    }
+
+    .hero-card {
+        min-height: 390px;
+        border-radius: 35px;
+        padding: 35px;
+        background: linear-gradient(145deg, #ff3d87, #762cff);
+        color: white;
+        box-shadow: 0 25px 60px rgba(99,43,180,0.28);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.12);
+    }
+
+    .hero-card::before {
+        width: 220px;
+        height: 220px;
+        right: -70px;
+        top: -70px;
+    }
+
+    .hero-card::after {
+        width: 160px;
+        height: 160px;
+        left: -60px;
+        bottom: -60px;
+    }
+
+    .hero-icon {
+        font-size: 80px;
+        margin-bottom: 25px;
+    }
+
+    .hero-card h2 {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .hero-card p {
+        color: rgba(255,255,255,0.9);
+        font-size: 16px;
+    }
+
+    section {
+        padding: 80px 20px;
+    }
+
+    .container {
+        max-width: 1150px;
+        margin: auto;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+
+    .section-title p {
+        color: #756d7b;
+        font-size: 17px;
+    }
+
+    .categories {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .category {
+        background: white;
+        padding: 30px 20px;
+        text-align: center;
+        border-radius: 25px;
+        box-shadow: 0 10px 35px rgba(48,28,70,0.08);
+        transition: 0.3s;
+    }
+
+    .category:hover {
+        transform: translateY(-8px);
+    }
+
+    .category-icon {
+        width: 75px;
+        height: 75px;
+        margin: 0 auto 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 22px;
+        font-size: 38px;
+        background: #fff0f6;
+    }
+
+    .category h3 {
+        margin-bottom: 8px;
+    }
+
+    .category p {
+        color: #77717d;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .features {
+        background: linear-gradient(135deg, #21152e, #34164c);
+        color: white;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .feature {
+        padding: 30px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.06);
+        border-radius: 25px;
+    }
+
+    .feature-icon {
+        font-size: 40px;
+        margin-bottom: 18px;
+    }
+
+    .feature h3 {
+        margin-bottom: 10px;
+    }
+
+    .feature p {
+        color: #ddd3e3;
+        line-height: 1.6;
+    }
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 45px;
+        align-items: center;
+    }
+
+    .about-box {
+        background: linear-gradient(135deg, #ffe1ed, #e9ddff);
+        min-height: 360px;
+        border-radius: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 110px;
+    }
+
+    .about-text h2 {
+        font-size: 42px;
+        margin-bottom: 20px;
+    }
+
+    .about-text p {
+        color: #665f6d;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    .about-link {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 12px 22px;
+        border-radius: 30px;
+        color: white;
+        font-weight: 800;
+        background: linear-gradient(135deg, #ff176b, #7b2cff);
+    }
+
+    .cta {
+        margin: 20px auto;
+        max-width: 1100px;
+        padding: 60px 35px;
+        border-radius: 35px;
+        text-align: center;
+        color: white;
+        background: linear-gradient(135deg, #ff176b, #7b2cff);
+    }
+
+    .cta h2 {
+        font-size: 42px;
+        margin-bottom: 15px;
+    }
+
+    .cta p {
+        margin-bottom: 25px;
+        color: rgba(255,255,255,0.9);
+    }
+
+    .cta .primary-btn {
+        background: white;
+        color: #7b2cff;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .contact-card {
+        background: white;
+        padding: 30px;
+        text-align: center;
+        border-radius: 25px;
+        box-shadow: 0 10px 35px rgba(48,28,70,0.08);
+    }
+
+    .contact-card .icon {
+        font-size: 38px;
+        margin-bottom: 15px;
+    }
+
+    .contact-card p {
+        color: #756d7b;
+        margin-top: 8px;
+    }
+
+    .contact-card a {
+        color: #ff176b;
+        font-weight: 700;
+    }
+
+    footer {
+        background: #18121e;
+        color: white;
+        padding: 50px 20px 25px;
+    }
+
+    .footer-grid {
+        max-width: 1150px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 40px;
+    }
+
+    .footer-logo {
+        font-size: 30px;
+        font-weight: 900;
+        margin-bottom: 15px;
+    }
+
+    footer p {
+        color: #bdb3c4;
+        line-height: 1.7;
+    }
+
+    footer h3 {
+        margin-bottom: 15px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        color: #cfc5d5;
+    }
+
+    .footer-links a:hover {
+        color: #ff5c98;
+    }
+
+    .copyright {
+        max-width: 1150px;
+        margin: 40px auto 0;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        text-align: center;
+        color: #9c92a3;
+        font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
         .nav-links {
-            display: flex;
-            gap: 25px;
-            font-weight: 600;
+            display: none;
         }
 
-        .nav-links a:hover {
-            color: #ff176b;
+        .hero-content,
+        .about-grid {
+            grid-template-columns: 1fr;
         }
 
-        .nav-btn {
-            background: linear-gradient(135deg, #ff176b, #7b2cff);
-            color: white;
-            padding: 11px 20px;
-            border-radius: 30px;
-            font-weight: 700;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 610px;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 10% 20%, #ffd1e4 0, transparent 28%),
-                radial-gradient(circle at 90% 20%, #ddd0ff 0, transparent 30%),
-                linear-gradient(135deg, #fff5f9, #f7f2ff);
-        }
-
-        .hero-content {
-            max-width: 1150px;
-            width: 100%;
-            margin: auto;
-            padding: 70px 20px;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 9px 17px;
-            background: white;
-            color: #ff176b;
-            border-radius: 30px;
-            font-weight: 700;
-            box-shadow: 0 8px 25px rgba(255,23,107,0.12);
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(42px, 6vw, 72px);
-            line-height: 1.03;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(90deg, #ff176b, #7b2cff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 19px;
-            line-height: 1.7;
-            color: #625c69;
-            max-width: 600px;
-            margin-bottom: 30px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .primary-btn,
-        .secondary-btn {
-            padding: 15px 25px;
-            border-radius: 35px;
-            font-weight: 800;
-            display: inline-block;
-        }
-
-        .primary-btn {
-            color: white;
-            background: linear-gradient(135deg, #ff176b, #7b2cff);
-            box-shadow: 0 12px 30px rgba(123,44,255,0.25);
-        }
-
-        .secondary-btn {
-            background: white;
-            border: 2px solid #eee4f2;
-        }
-
-        .hero-card {
-            min-height: 390px;
-            border-radius: 35px;
-            padding: 35px;
-            background: linear-gradient(145deg, #ff3d87, #762cff);
-            color: white;
-            box-shadow: 0 25px 60px rgba(99,43,180,0.28);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-card::before,
-        .hero-card::after {
-            content: "";
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.12);
-        }
-
-        .hero-card::before {
-            width: 220px;
-            height: 220px;
-            right: -70px;
-            top: -70px;
-        }
-
-        .hero-card::after {
-            width: 160px;
-            height: 160px;
-            left: -60px;
-            bottom: -60px;
-        }
-
-        .hero-icon {
-            font-size: 80px;
-            margin-bottom: 25px;
-        }
-
-        .hero-card h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-
-        .hero-card p {
-            color: rgba(255,255,255,0.9);
-            font-size: 16px;
-        }
-
-        /* SECTION */
-        section {
-            padding: 80px 20px;
-        }
-
-        .container {
-            max-width: 1150px;
-            margin: auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-title h2 {
-            font-size: 40px;
-            margin-bottom: 12px;
-        }
-
-        .section-title p {
-            color: #756d7b;
-            font-size: 17px;
-        }
-
-        /* CATEGORIES */
         .categories {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .category {
-            background: white;
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 25px;
-            box-shadow: 0 10px 35px rgba(48,28,70,0.08);
-            transition: 0.3s;
-        }
-
-        .category:hover {
-            transform: translateY(-8px);
-        }
-
-        .category-icon {
-            width: 75px;
-            height: 75px;
-            margin: 0 auto 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 22px;
-            font-size: 38px;
-            background: #fff0f6;
-        }
-
-        .category h3 {
-            margin-bottom: 8px;
-        }
-
-        .category p {
-            color: #77717d;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        /* FEATURES */
-        .features {
-            background: linear-gradient(135deg, #21152e, #34164c);
-            color: white;
+            grid-template-columns: repeat(2, 1fr);
         }
 
         .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            grid-template-columns: 1fr;
         }
 
-        .feature {
-            padding: 30px;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: rgba(255,255,255,0.06);
-            border-radius: 25px;
+        .contact-grid {
+            grid-template-columns: 1fr;
         }
 
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 18px;
+        .hero {
+            min-height: auto;
         }
 
-        .feature h3 {
-            margin-bottom: 10px;
-        }
-
-        .feature p {
-            color: #ddd3e3;
-            line-height: 1.6;
-        }
-
-        /* ABOUT */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 45px;
-            align-items: center;
+        .hero-card {
+            min-height: 300px;
         }
 
         .about-box {
-            background: linear-gradient(135deg, #ffe1ed, #e9ddff);
-            min-height: 360px;
-            border-radius: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 110px;
+            min-height: 260px;
+            font-size: 80px;
         }
 
-        .about-text h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
+        section {
+            padding: 60px 18px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo {
+            font-size: 23px;
         }
 
-        .about-text p {
-            color: #665f6d;
-            line-height: 1.8;
-            margin-bottom: 15px;
+        .nav-btn {
+            padding: 9px 14px;
+            font-size: 13px;
         }
 
-        /* CTA */
-        .cta {
-            margin: 20px auto;
-            max-width: 1100px;
-            padding: 60px 35px;
-            border-radius: 35px;
-            text-align: center;
-            color: white;
-            background: linear-gradient(135deg, #ff176b, #7b2cff);
+        .categories {
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
         }
 
+        .category {
+            padding: 22px 12px;
+        }
+
+        .section-title h2,
+        .about-text h2,
         .cta h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
+            font-size: 32px;
         }
+    }
+</style>
 
-        .cta p {
-            margin-bottom: 25px;
-            color: rgba(255,255,255,0.9);
-        }
-
-        .cta .primary-btn {
-            background: white;
-            color: #7b2cff;
-        }
-
-        /* CONTACT */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .contact-card {
-            background: white;
-            padding: 30px;
-            text-align: center;
-            border-radius: 25px;
-            box-shadow: 0 10px 35px rgba(48,28,70,0.08);
-        }
-
-        .contact-card .icon {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .contact-card p {
-            color: #756d7b;
-            margin-top: 8px;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #18121e;
-            color: white;
-            padding: 50px 20px 25px;
-        }
-
-        .footer-grid {
-            max-width: 1150px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        .footer-logo {
-            font-size: 30px;
-            font-weight: 900;
-            margin-bottom: 15px;
-        }
-
-        footer p {
-            color: #bdb3c4;
-            line-height: 1.7;
-        }
-
-        footer h3 {
-            margin-bottom: 15px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            color: #cfc5d5;
-        }
-
-        .footer-links a:hover {
-            color: #ff5c98;
-        }
-
-        .copyright {
-            max-width: 1150px;
-            margin: 40px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            color: #9c92a3;
-            font-size: 14px;
-        }
-
-        /* MOBILE */
-        @media (max-width: 850px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content,
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .categories {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                min-height: auto;
-            }
-
-            .hero-card {
-                min-height: 300px;
-            }
-
-            .about-box {
-                min-height: 260px;
-                font-size: 80px;
-            }
-
-            section {
-                padding: 60px 18px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 23px;
-            }
-
-            .nav-btn {
-                padding: 9px 14px;
-                font-size: 13px;
-            }
-
-            .categories {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-
-            .category {
-                padding: 22px 12px;
-            }
-
-            .section-title h2,
-            .about-text h2,
-            .cta h2 {
-                font-size: 32px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
+</head><body><header>
     <div class="nav">
-        <a href="#" class="logo">✂️ Barber Ji</a>
-
-        <div class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </div>
-
-        <a href="#download" class="nav-btn">Get Started</a>
+        <a href="index.html" class="logo">✂️ Barber Ji</a>    <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="about.html">About</a>
+        <a href="#contact">Contact</a>
     </div>
-</header>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-content">
+    <a href="#download" class="nav-btn">Get Started</a>
+</div>
 
-        <div>
-            <div class="badge">✨ Your Beauty & Grooming Partner</div>
+</header><section class="hero">
+    <div class="hero-content">    <div>
+        <div class="badge">✨ Your Beauty & Grooming Partner</div>
 
-            <h1>
-                Look Good.<br>
-                <span>Feel Amazing.</span>
-            </h1>
-
-            <p>
-                Discover trusted salons, beauty parlours and professional
-                grooming services with Barber Ji. Find the right service
-                and enjoy a simple booking experience.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#download" class="primary-btn">📱 Explore Barber Ji</a>
-                <a href="#services" class="secondary-btn">View Services →</a>
-            </div>
-        </div>
-
-        <div class="hero-card">
-            <div class="hero-icon">💇‍♂️💇‍♀️</div>
-
-            <h2>Beauty for Everyone</h2>
-
-            <p>
-                Haircuts, styling, grooming, beauty treatments,
-                salon services and more — all in one place.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Explore Our Services</h2>
-            <p>Everything you need for your style and self-care.</p>
-        </div>
-
-        <div class="categories">
-
-            <div class="category">
-                <div class="category-icon">💈</div>
-                <h3>Gents Salon</h3>
-                <p>Haircuts, beard styling, shaving and grooming.</p>
-            </div>
-
-            <div class="category">
-                <div class="category-icon">💇‍♀️</div>
-                <h3>Ladies Parlour</h3>
-                <p>Beauty, hair, skin and personal care services.</p>
-            </div>
-
-            <div class="category">
-                <div class="category-icon">✨</div>
-                <h3>Unisex Salon</h3>
-                <p>Professional salon services for everyone.</p>
-            </div>
-
-            <div class="category">
-                <div class="category-icon">🏠</div>
-                <h3>Home Service</h3>
-                <p>Professional grooming and beauty services at home.</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features">
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Why Barber Ji?</h2>
-            <p>Designed to make salon booking simple and convenient.</p>
-        </div>
-
-        <div class="feature-grid">
-
-            <div class="feature">
-                <div class="feature-icon">🔎</div>
-                <h3>Find Nearby Salons</h3>
-                <p>
-                    Explore salons and beauty service providers
-                    according to your needs.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">📅</div>
-                <h3>Easy Booking</h3>
-                <p>
-                    Choose a service, date and time and make
-                    your booking easily.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">🏠</div>
-                <h3>Home Services</h3>
-                <p>
-                    Enjoy professional services from the comfort
-                    of your home where available.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-    <div class="container">
-
-        <div class="about-grid">
-
-            <div class="about-box">
-                💇‍♂️💖
-            </div>
-
-            <div class="about-text">
-                <h2>About Barber Ji</h2>
-
-                <p>
-                    Barber Ji is a salon and beauty service platform
-                    designed to connect customers with local
-                    professional service providers.
-                </p>
-
-                <p>
-                    From everyday grooming to beauty and salon
-                    treatments, our goal is to make discovering
-                    and booking services easier.
-                </p>
-
-                <p>
-                    Customers can explore available services and
-                    salons and choose the option that suits them.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<section id="download">
-    <div class="cta">
-
-        <h2>Ready to Style Your Day?</h2>
+        <h1>
+            Look Good.<br>
+            <span>Feel Amazing.</span>
+        </h1>
 
         <p>
-            Discover salons, explore services and experience
-            convenient booking with Barber Ji.
+            Discover trusted salons, beauty parlours and professional
+            grooming services with Barber Ji. Find the right service
+            and enjoy a simple booking experience.
         </p>
 
-        <!-- Actual app link will be added later -->
-        <a href="#" class="primary-btn">
-            📱 Barber Ji App
-        </a>
-
+        <div class="hero-buttons">
+            <a href="#download" class="primary-btn">📱 Explore Barber Ji</a>
+            <a href="#services" class="secondary-btn">View Services →</a>
+        </div>
     </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact">
-    <div class="container">
+    <div class="hero-card">
+        <div class="hero-icon">💇‍♂️💇‍♀️</div>
 
-        <div class="section-title">
-            <h2>Contact Barber Ji</h2>
-            <p>We are here to help.</p>
+        <h2>Beauty for Everyone</h2>
+
+        <p>
+            Haircuts, styling, grooming, beauty treatments,
+            salon services and more — all in one place.
+        </p>
+    </div>
+
+</div>
+
+</section><section id="services">
+    <div class="container">    <div class="section-title">
+        <h2>Explore Our Services</h2>
+        <p>Everything you need for your style and self-care.</p>
+    </div>
+
+    <div class="categories">
+
+        <div class="category">
+            <div class="category-icon">💈</div>
+            <h3>Gents Salon</h3>
+            <p>Haircuts, beard styling, shaving and grooming.</p>
         </div>
 
-        <div class="contact-grid">
+        <div class="category">
+            <div class="category-icon">💇‍♀️</div>
+            <h3>Ladies Parlour</h3>
+            <p>Beauty, hair, skin and personal care services.</p>
+        </div>
 
-            <div class="contact-card">
-                <div class="icon">📧</div>
-                <h3>Email</h3>
-                <p>anantsony628@gmail.com</p>
-            </div>
+        <div class="category">
+            <div class="category-icon">✨</div>
+            <h3>Unisex Salon</h3>
+            <p>Professional salon services for everyone.</p>
+        </div>
 
-            <div class="contact-card">
-                <div class="icon">📞</div>
-                <h3>Customer Support</h3>
-                <p>Contact details coming soon</p>
-            </div>
-
-            <div class="contact-card">
-                <div class="icon">📍</div>
-                <h3>Location</h3>
-                <p>India</p>
-            </div>
-
+        <div class="category">
+            <div class="category-icon">🏠</div>
+            <h3>Home Service</h3>
+            <p>Professional grooming and beauty services at home.</p>
         </div>
 
     </div>
-</section>
+</div>
 
-<!-- FOOTER -->
-<footer>
+</section><section class="features">
+    <div class="container">    <div class="section-title">
+        <h2>Why Barber Ji?</h2>
+        <p>Designed to make salon booking simple and convenient.</p>
+    </div>
 
-    <div class="footer-grid">
+    <div class="feature-grid">
 
-        <div>
-            <div class="footer-logo">✂️ Barber Ji</div>
-
+        <div class="feature">
+            <div class="feature-icon">🔎</div>
+            <h3>Find Nearby Salons</h3>
             <p>
-                Salon, beauty and grooming services
-                made easier.
+                Explore salons and beauty service providers
+                according to your needs.
             </p>
         </div>
 
-        <div>
-            <h3>Quick Links</h3>
-
-            <div class="footer-links">
-                <a href="#services">Services</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">Contact Us</a>
-            </div>
+        <div class="feature">
+            <div class="feature-icon">📅</div>
+            <h3>Easy Booking</h3>
+            <p>
+                Choose a service, date and time and make
+                your booking easily.
+            </p>
         </div>
 
-        <div>
-            <h3>Policies</h3>
+        <div class="feature">
+            <div class="feature-icon">🏠</div>
+            <h3>Home Services</h3>
+            <p>
+                Enjoy professional services from the comfort
+                of your home where available.
+            </p>
+        </div>
 
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Refund & Cancellation</a>
-            </div>
+    </div>
+</div>
+
+</section><section id="about">
+    <div class="container">    <div class="about-grid">
+
+        <div class="about-box">
+            💇‍♂️💖
+        </div>
+
+        <div class="about-text">
+            <h2>About Barber Ji</h2>
+
+            <p>
+                Barber Ji is a salon and beauty service platform
+                designed to connect customers with local
+                professional service providers.
+            </p>
+
+            <p>
+                From everyday grooming to beauty and salon
+                treatments, our goal is to make discovering
+                and booking services easier.
+            </p>
+
+            <p>
+                Customers can explore available services and
+                salons and choose the option that suits them.
+            </p>
+
+            <a href="about.html" class="about-link">
+                Learn More About Us →
+            </a>
+        </div>
+
+    </div>
+</div>
+
+</section><section id="download">
+    <div class="cta">    <h2>Ready to Style Your Day?</h2>
+
+    <p>
+        Discover salons, explore services and experience
+        convenient booking with Barber Ji.
+    </p>
+
+    <a href="#" class="primary-btn">
+        📱 Barber Ji App
+    </a>
+
+</div>
+
+</section><section id="contact">
+    <div class="container">    <div class="section-title">
+        <h2>Contact Barber Ji</h2>
+        <p>We are here to help.</p>
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-card">
+            <div class="icon">📧</div>
+            <h3>Email</h3>
+            <p>
+                <a href="mailto:anantsony628@gmail.com">
+                    anantsony628@gmail.com
+                </a>
+            </p>
+        </div>
+
+        <div class="contact-card">
+            <div class="icon">📞</div>
+            <h3>Founder</h3>
+            <p>
+                Anand Kumar
+            </p>
+            <p>
+                <a href="tel:8340588692">
+                    8340588692
+                </a>
+            </p>
+        </div>
+
+        <div class="contact-card">
+            <div class="icon">📍</div>
+            <h3>Location</h3>
+            <p>India</p>
         </div>
 
     </div>
 
-    <div class="copyright">
-        © 2026 Barber Ji. All rights reserved.
+</div>
+
+</section><footer><div class="footer-grid">
+
+    <div>
+        <div class="footer-logo">✂️ Barber Ji</div>
+
+        <p>
+            Salon, beauty and grooming services
+            made easier.
+        </p>
     </div>
 
-</footer>
+    <div>
+        <h3>Quick Links</h3>
 
-</body>
-  </html>
+        <div class="footer-links">
+            <a href="#services">Services</a>
+            <a href="about.html">About Us</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </div>
+
+    <div>
+        <h3>Policies</h3>
+
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-and-conditions.html">Terms & Conditions</a>
+            <a href="refund-cancellation.html">Refund & Cancellation</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="copyright">
+    © 2026 Barber Ji. All rights reserved.
+</div>
+
+</footer></body>
+    </html>
